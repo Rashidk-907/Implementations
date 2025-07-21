@@ -28,7 +28,7 @@ public:
     {
         _size = list.size();
         _cap = _size;
-        arr = new T[_cap]; 
+        arr = new T[_cap];
 
         int i = 0;
         for (T val : list)
@@ -102,13 +102,17 @@ public:
         return arr[--_size];
     }
 
-    T operator[](int index)
+    T &operator[](int index)
     {
-        if (index < 0 || index >= _size) 
+        if (index < 0 || index >= _size)
         {
             throw std::out_of_range("index out of bound");
         }
 
         return arr[index];
     }
+
+    T *begin() { return arr; }
+
+    T *end() { return arr + _size; }
 };
