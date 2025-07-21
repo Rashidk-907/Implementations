@@ -71,7 +71,7 @@ public:
         arr[_size++] = data;
     }
 
-    int size()
+    inline int size()
     {
         return _size;
     }
