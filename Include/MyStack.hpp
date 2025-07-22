@@ -1,4 +1,4 @@
-#include <iostream>
+#include "MyVector.hpp"
 
 template <typename T>
 class MyStack
@@ -8,7 +8,7 @@ private:
     int _top; // Index of next insertion (also represents size)
 
 public:
-    mystack()
+    MyStack()
     {
         _top = 0;
     }
@@ -16,6 +16,7 @@ public:
     inline void push(T data)
     {
         arr.push_back(data);
+        _top++;
     }
 
     T top()
@@ -40,7 +41,8 @@ public:
             std::cerr << "Warning: Tried to pop from empty stack\n";
             return;
         }
-        arr.push_back();
+        arr.pop_back();
+        _top--;
     }
 
     int size()
