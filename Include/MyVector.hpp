@@ -14,7 +14,6 @@ public:
         _cap = _cap * 2;
         T *arr2 = new T[_cap];
 
-        // Copy old elements to new array
         for (int i = 0; i < _size; i++)
         {
             arr2[i] = arr[i];
