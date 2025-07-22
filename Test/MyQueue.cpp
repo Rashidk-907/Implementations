@@ -2,7 +2,7 @@
 
 int main()
 {
-    myqueue<int> q;
+    MyQueue<int> q;
 
     std::cout << "Is queue empty? " << (q.empty() ? "Yes" : "No") << "\n";
 

@@ -1,7 +1,7 @@
 #include "MyVector.hpp"
 
 template <typename T>
-class myqueue
+class MyQueue
 {
 private:
     MyVector<T> arr;
@@ -10,7 +10,7 @@ private:
     int _size;
 
 public:
-    myqueue()
+    MyQueue()
     {
         _front = 0;
         _back = -1;
