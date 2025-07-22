@@ -1,5 +1,3 @@
-//Testing file for MyVector 
-
 #include <iostream>
 #include "include/MyVector.hpp"  
 
