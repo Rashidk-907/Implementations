@@ -1,7 +1,7 @@
 #include<iostream>
 
 template <typename T>
-class list
+class MyList
 {
 private:
   struct node
@@ -24,7 +24,7 @@ private:
   }
 
 public:
-  list()
+  MyList()
   {
     head = nullptr;
     tail = nullptr;
@@ -172,7 +172,7 @@ public:
     }
     if (!temp)
     {
-      std::cout << "Value not in list!!\n\n";
+      std::cout << "Value not in List!!\n\n";
       return;
     }
     if (temp == tail)
@@ -263,7 +263,7 @@ public:
     head = prev;
   }
 
-  ~list()
+  ~MyList()
   {
     clear();
   }
