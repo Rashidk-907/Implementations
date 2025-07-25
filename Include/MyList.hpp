@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 
 template <typename T>
 class MyList
@@ -14,7 +14,7 @@ private:
   node *tail;
   int _size;
 
-  node *init(int data)
+  node *init(T data)
   {
     node *temp;
     temp = new node;
@@ -31,7 +31,7 @@ public:
     _size = 0;
   }
 
-  void insert_at_tail(T data)
+  void push_back(T data)
   {
     if (!head)
     {
@@ -48,7 +48,7 @@ public:
     _size++;
   }
 
-  void insert_at_head(T data)
+  void push_front(T data)
   {
     if (!head)
     {
@@ -81,16 +81,16 @@ public:
     std::cout << "\n";
   }
 
-  void insert_at_middle(int position, T data)
+  void insert(int position, T data)
   {
     if (position == 0)
     {
-      insert_at_head(data);
+      push_front(data);
     }
 
     else if (position > _size)
     {
-      insert_at_tail(data);
+      push_back(data);
     }
 
     else
@@ -107,7 +107,7 @@ public:
     _size++;
   }
 
-  void delete_head()
+  void pop_front()
   {
     if (!head)
     {
@@ -124,7 +124,7 @@ public:
       tail = nullptr;
   }
 
-  void delete_tail()
+  void pop_back()
   {
     if (!head)
     {
@@ -150,18 +150,18 @@ public:
     _size--;
   }
 
-  void delete_mid(T data)
+  void erase(T data)
   {
     node *temp = head, *prev;
     if (head->data == data)
     {
-      delete_head();
+      pop_front();
       return;
     }
 
     else if (tail->data == data)
     {
-      delete_tail();
+      pop_back();
       return;
     }
 
@@ -172,12 +172,12 @@ public:
     }
     if (!temp)
     {
-      std::cout << "Value not in List!!\n\n";
+      std::cout << "Value not in list!!\n\n";
       return;
     }
     if (temp == tail)
     {
-      delete_tail();
+      pop_back();
       return;
     }
 
