@@ -1,5 +1,3 @@
-#include <iostream>
-
 template <typename T>
 class MyList
 {
@@ -31,7 +29,7 @@ public:
     _size = 0;
   }
 
-  void push_back(T data)
+  void push_tail(T data)
   {
     if (!head)
     {
@@ -48,7 +46,7 @@ public:
     _size++;
   }
 
-  void push_front(T data)
+  void push_head(T data)
   {
     if (!head)
     {
@@ -75,22 +73,22 @@ public:
     node *temp = head;
     while (temp)
     {
-      std::cout << temp->data << "->";
+      cout << temp->data << "->";
       temp = temp->next;
     }
-    std::cout << "\n";
+    cout << "\n";
   }
 
   void insert(int position, T data)
   {
     if (position == 0)
     {
-      push_front(data);
+      push_head(data);
     }
 
     else if (position > _size)
     {
-      push_back(data);
+      push_tail(data);
     }
 
     else
@@ -107,11 +105,11 @@ public:
     _size++;
   }
 
-  void pop_front()
+  void pop_head()
   {
     if (!head)
     {
-      std::cout << "Empty List\n";
+      cout << "Empty List\n";
       return;
     }
 
@@ -124,11 +122,11 @@ public:
       tail = nullptr;
   }
 
-  void pop_back()
+  void pop_tail()
   {
     if (!head)
     {
-      std::cout << "Empty Listn\n";
+      cout << "Empty Listn\n";
       return;
     }
     else if (!head->next)
@@ -155,13 +153,13 @@ public:
     node *temp = head, *prev;
     if (head->data == data)
     {
-      pop_front();
+      pop_head();
       return;
     }
 
     else if (tail->data == data)
     {
-      pop_back();
+      pop_tail();
       return;
     }
 
@@ -172,12 +170,12 @@ public:
     }
     if (!temp)
     {
-      std::cout << "Value not in list!!\n\n";
+      cout << "Value not in list!!\n\n";
       return;
     }
     if (temp == tail)
     {
-      pop_back();
+      pop_tail();
       return;
     }
 
@@ -245,7 +243,7 @@ public:
   {
     if (!head)
     {
-      std::cout << "List is Empty\n";
+      cout << "List is Empty\n";
       return;
     }
 
