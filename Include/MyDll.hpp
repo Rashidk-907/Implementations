@@ -217,6 +217,26 @@ public:
         return tail->data;
     }
 
+    void reverse()
+    {
+        if (!head)
+            return;
+
+        node *curr = head;
+        node *prev = nullptr;
+        node *forward;
+        while (curr)
+        {
+            forward = curr->next;
+            curr->next = prev;
+            curr->previous = forward;
+            prev = curr;
+            curr = forward;
+        }
+        tail = head;
+        head = prev;
+    }
+
     bool contains(const T &val)
     {
         node *temp = head;
