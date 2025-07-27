@@ -94,7 +94,7 @@ public:
             push_head(data);
         }
 
-        else if (position > _size)
+        else if (position >= _size)
         {
             push_tail(data);
         }
@@ -111,8 +111,8 @@ public:
             n1->next = temp->next;
             n1->previous = temp;
             temp->next = n1;
+            _size++;
         }
-        _size++;
     }
 
     void pop_head()
