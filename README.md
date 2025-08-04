@@ -1,27 +1,45 @@
-C++ STL Container Implementations
-This repository contains my custom implementations of basic C++ STL containers like:
+# 🚀 Custom STL-like Containers in C++
 
-Vector
+This project contains hand-written implementations of commonly used STL containers in C++, built from scratch without using any STL containers internally.
 
-Stack
+---
 
-Queue
+## 📦 Implemented Containers
 
-Singly Linked List
+- **MyArray<T, N>**
+  - Fixed-size array (like `std::array`)
+  - Supports `at()`, `operator[]`, `fill()`, `front()`, `back()`, `begin()`, `end()`, and `swap()`
 
-📌 Purpose
-I'm building these from scratch to understand how they work internally — focusing on logic, memory handling, and basic operations.
+- **MySLL<T>** *(Singly Linked List)*
+  - `insert`, `erase`, `reverse`, `search`, `clear`, `push_front`, `push_back`
 
-✅ Features
-Push / Pop / Insert / Delete
+- **MyDLL<T>** *(Doubly Linked List)*
+  - Bi-directional traversal, `insert`, `erase`, `reverse`, `print_reverse`, `clear`, `contains`
 
-Access elements (front, back, top, etc.)
+- **MyStack<T>**, **MyQueue<T>**
+  - Implemented using custom linked lists
 
-Dynamic resizing (for vector)
+- **Planned:**
+  - `MyDeque`, `MySet`, `MyMap`, `MyUnorderedSet`, `BitSet`
 
-Utility functions (size, empty, clear, etc.)
+---
 
-📂 Structure
-Include/ – Header files for each container
+## 🎯 Why This?
 
-Test/ – Test files to check functionality
+> Rebuilding the STL piece by piece helps me deeply understand how each container works under the hood, and strengthens my system-level C++ fundamentals.
+
+---
+
+📁 Structure
+MyArray.h – Static array
+
+MyDLL.h, MySLL.h – Linked list implementations
+
+MyStack.h, MyQueue.h – Basic containers using custom lists
+
+tests/ – Small test cases for each
+
+🙌 Contributions
+Suggestions, improvements, and PRs are welcome — this is a learning-focused project!
+
+
