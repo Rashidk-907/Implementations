@@ -13,7 +13,7 @@ This project contains implementations of commonly used STL containers from scrat
   - `front()`, `back()`
   - `begin()`, `end()`, `swap()`
 
-### 🔗 MySLL<T> *(Singly Linked List)*
+### 🔗 MyList<T> *(Singly Linked List)*
 - Operations:
   - `insert`, `erase`, `reverse`
   - `search`, `clear`
