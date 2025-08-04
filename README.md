@@ -47,10 +47,9 @@ This project contains implementations of commonly used STL containers from scrat
 - `BitSet`
 
 ---
-##🧱 Project Structure
+## 🧱 Project Structure
 - Include/ — Contains all header files for STL-like container implementations
-
- - Test/ — Contains C++ test files to validate each container
+- Test/ — Contains C++ test files to validate each container
 
 ---
 ## 🎯 Why This?
