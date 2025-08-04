@@ -1,27 +1,14 @@
-C++ STL Container Implementations
-This repository contains my custom implementations of basic C++ STL containers like:
+Custom STL Containers in C++
+Wrote my own versions of common STL containers in C++ from scratch — no STL used.
 
-Vector
+✅ What’s inside
+MyArray<T, N> – fixed-size array with bounds-checked at(), [], fill(), etc.
 
-Stack
+MySLL<T> – singly linked list with insert/delete
 
-Queue
+MyDLL<T> – doubly linked list with push, pop, erase, reverse, etc.
 
-Singly Linked List
+MyStack<T>, MyQueue<T> – stack/queue using custom containers
 
-📌 Purpose
-I'm building these from scratch to understand how they work internally — focusing on logic, memory handling, and basic operations.
-
-✅ Features
-Push / Pop / Insert / Delete
-
-Access elements (front, back, top, etc.)
-
-Dynamic resizing (for vector)
-
-Utility functions (size, empty, clear, etc.)
-
-📂 Structure
-Include/ – Header files for each container
-
-Test/ – Test files to check functionality
+💡 Why?
+To learn how STL containers work under the hood and practice low-level C++.
