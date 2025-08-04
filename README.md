@@ -1,6 +1,6 @@
 # 🚀 Custom STL-like Containers in C++
 
-This project contains implementations of commonly used STL containers from scratch in C++, built from scratch without using any STL containers internally.
+This project contains implementations of commonly used STL containers from scratch in C++.
 
 ---
 
