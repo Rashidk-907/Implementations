@@ -30,10 +30,16 @@ This project contains hand-written implementations of commonly used STL containe
 
 ---
 
-## 🧪 Sample Test Snippet
+📁 Structure
+MyArray.h – Static array
 
-```cpp
-MyArray<int, 5> arr;
-arr.fill(10);
-arr[2] = 42;
-std::cout << arr.at(2); // Outputs 42
+MyDLL.h, MySLL.h – Linked list implementations
+
+MyStack.h, MyQueue.h – Basic containers using custom lists
+
+tests/ – Small test cases for each
+
+🙌 Contributions
+Suggestions, improvements, and PRs are welcome — this is a learning-focused project!
+
+
