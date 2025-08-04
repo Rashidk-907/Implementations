@@ -1,14 +1,39 @@
-Custom STL Containers in C++
-Wrote my own versions of common STL containers in C++ from scratch — no STL used.
+# 🚀 Custom STL-like Containers in C++
 
-✅ What’s inside
-MyArray<T, N> – fixed-size array with bounds-checked at(), [], fill(), etc.
+This project contains hand-written implementations of commonly used STL containers in C++, built from scratch without using any STL containers internally.
 
-MySLL<T> – singly linked list with insert/delete
+---
 
-MyDLL<T> – doubly linked list with push, pop, erase, reverse, etc.
+## 📦 Implemented Containers
 
-MyStack<T>, MyQueue<T> – stack/queue using custom containers
+- **MyArray<T, N>**
+  - Fixed-size array (like `std::array`)
+  - Supports `at()`, `operator[]`, `fill()`, `front()`, `back()`, `begin()`, `end()`, and `swap()`
 
-💡 Why?
-To learn how STL containers work under the hood and practice low-level C++.
+- **MySLL<T>** *(Singly Linked List)*
+  - `insert`, `erase`, `reverse`, `search`, `clear`, `push_front`, `push_back`
+
+- **MyDLL<T>** *(Doubly Linked List)*
+  - Bi-directional traversal, `insert`, `erase`, `reverse`, `print_reverse`, `clear`, `contains`
+
+- **MyStack<T>**, **MyQueue<T>**
+  - Implemented using custom linked lists
+
+- **Planned:**
+  - `MyDeque`, `MySet`, `MyMap`, `MyUnorderedSet`, `BitSet`
+
+---
+
+## 🎯 Why This?
+
+> Rebuilding the STL piece by piece helps me deeply understand how each container works under the hood, and strengthens my system-level C++ fundamentals.
+
+---
+
+## 🧪 Sample Test Snippet
+
+```cpp
+MyArray<int, 5> arr;
+arr.fill(10);
+arr[2] = 42;
+std::cout << arr.at(2); // Outputs 42
