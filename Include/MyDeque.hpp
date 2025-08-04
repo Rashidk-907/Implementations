@@ -21,7 +21,7 @@ public:
 
     // Utility
     bool empty() { return dll.empty(); }
-    int size() { return !dll.size(); }
+    int size() { return dll.size(); }
     void clear() { dll.clear(); }
 
     // Optional: Print for debugging
