@@ -22,7 +22,6 @@ public:
         data.resize(row, vector<T>(col, T())); // initialize with default value of T
     }
 
-    // Constructor from 2D vector
     Matrix(const vector<vector<T>> &input)
     {
         if (input.empty() || input[0].empty())
@@ -34,11 +33,9 @@ public:
         data = input;
     }
 
-    // Getters
     int getRows() const { return row; }
     int getCols() const { return col; }
 
-    // Element access (non-const)
     T &operator()(size_t r, size_t c)
     {
         if (r >= row || c >= col)
@@ -48,7 +45,6 @@ public:
         return data[r][c];
     }
 
-    // Element access (const)
     const T &operator()(size_t r, size_t c) const
     {
         if (r >= row || c >= col)
@@ -58,7 +54,6 @@ public:
         return data[r][c];
     }
 
-    // Addition
     Matrix operator+(const Matrix &other) const
     {
         if (row != other.row || col != other.col)
@@ -76,7 +71,6 @@ public:
         return temp;
     }
 
-    // Subtraction
     Matrix operator-(const Matrix &other) const
     {
         if (row != other.row || col != other.col)
@@ -94,7 +88,6 @@ public:
         return temp;
     }
 
-    // Matrix multiplication
     Matrix operator*(const Matrix &other) const
     {
         if (col != other.row)
@@ -115,7 +108,6 @@ public:
         return temp;
     }
 
-    // Scalar multiplication
     void Scalar_Multiplication(T k)
     {
         for (size_t i = 0; i < row; i++)
@@ -127,7 +119,6 @@ public:
         }
     }
 
-    // Transpose (in-place for square matrix)
     void transpose()
     {
         if (row != col)
@@ -143,7 +134,6 @@ public:
         }
     }
 
-    // Print
     void print() const
     {
         for (const auto &row : data)
@@ -153,5 +143,29 @@ public:
             cout << "\n";
         }
         cout << "\n";
+    }
+
+    void fill(T value)
+    {
+        for (size_t i = 0; i < row; i++)
+        {
+            for (size_t j = 0; j < col; j++)
+            {
+                data[i][j] = k;
+            }
+        }
+    }
+
+    void rotate()
+    {
+        transpose();
+        int s = 0, e = col;
+        while (s < e)
+        {
+            for (int i = 0; i < row; i++)
+            {
+                swap(data[i][s++], data[i][e--]);
+            }
+        }
     }
 };
