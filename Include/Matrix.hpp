@@ -10,7 +10,7 @@ private:
     vector<vector<T>> data;
 
 public:
-    // Constructor
+    // * Constructors
     Matrix(int r, int c)
     {
         if (r <= 0 || c <= 0)
@@ -33,26 +33,7 @@ public:
         data = input;
     }
 
-    int getRows() const { return row; }
-    int getCols() const { return col; }
-
-    T &operator()(size_t r, size_t c)
-    {
-        if (r >= row || c >= col)
-        {
-            throw std::out_of_range("Matrix indices out of range");
-        }
-        return data[r][c];
-    }
-
-    const T &operator()(size_t r, size_t c) const
-    {
-        if (r >= row || c >= col)
-        {
-            throw std::out_of_range("Matrix indices out of range");
-        }
-        return data[r][c];
-    }
+    // * Arithmetic Operations and overloading
 
     Matrix operator+(const Matrix &other) const
     {
@@ -119,6 +100,7 @@ public:
         }
     }
 
+    // *Transformations
     void transpose()
     {
         if (row != col)
@@ -134,6 +116,43 @@ public:
         }
     }
 
+    void rotate_90()
+    {
+        transpose();
+        int s = 0, e = col - 1;
+        while (s < e)
+        {
+            for (int i = 0; i < row; i++)
+            {
+                swap(data[i][s], data[i][e]);
+            }
+            s++, e--;
+        }
+    }
+
+    void rotate_180()
+    {
+        rotate_90();
+        rotate_90();
+    }
+
+    void rotate_270()
+    {
+        rotate_90();
+        rotate_90();
+        rotate_90();
+    }
+
+    void rotate_k_times(int k)
+    {
+        k = k % 4;
+        while (k--)
+        {
+            rotate_90();
+        }
+    }
+
+    // *Utilities
     void print() const
     {
         for (const auto &row : data)
@@ -145,6 +164,33 @@ public:
         cout << "\n";
     }
 
+    int getRows() const { return row; }
+
+    int getCols() const { return col; }
+
+    void resize(size_t r, size_t c)
+    {
+        data.resize(r, vector<T>(c, T()));
+    }
+
+    T &operator()(size_t r, size_t c)
+    {
+        if (r >= row || c >= col)
+        {
+            throw std::out_of_range("Matrix indices out of range");
+        }
+        return data[r][c];
+    }
+
+    const T &operator()(size_t r, size_t c) const
+    {
+        if (r >= row || c >= col)
+        {
+            throw std::out_of_range("Matrix indices out of range");
+        }
+        return data[r][c];
+    }
+
     void fill(T value)
     {
         for (size_t i = 0; i < row; i++)
@@ -152,19 +198,6 @@ public:
             for (size_t j = 0; j < col; j++)
             {
                 data[i][j] = k;
-            }
-        }
-    }
-
-    void rotate()
-    {
-        transpose();
-        int s = 0, e = col;
-        while (s < e)
-        {
-            for (int i = 0; i < row; i++)
-            {
-                swap(data[i][s++], data[i][e--]);
             }
         }
     }

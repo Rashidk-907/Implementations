@@ -1,0 +1,69 @@
+Basic Constructors & Setup
+        Constructor: Create matrix with given rows, cols, and default values.
+
+        Copy constructor & assignment operator.
+
+        Initializer from 2D vector.
+
+        Destructor (if using raw memory).
+
+2. Access & Utility
+        getRows(), getCols() → Return dimensions.
+
+        resize(rows, cols) → Change size.
+
+        fill(value) → Fill matrix with a constant.
+
+        Overloaded () or [] operators for element access.
+
+        print() → Display neatly.
+
+3. Arithmetic Operations
+        Addition → Matrix + Matrix
+
+        Subtraction → Matrix - Matrix
+
+        Scalar multiplication → Matrix * scalar
+
+        Matrix multiplication → Matrix * Matrix
+
+        Transpose → Swap rows & cols.
+
+4. Transformations & Algorithms
+        Determinant (for square matrices).
+
+        Inverse (optional, more for advanced cases).
+
+        Rotate 90°, 180°, 270°.
+
+        Flip (horizontal, vertical).
+
+        Diagonal traversals (main & anti-diagonal).
+
+        Spiral traversal.
+
+5. Searching & Modifications
+        Search for a value.
+
+        Replace a value.
+
+        Row/Column swap.
+
+        Row/Column sum.
+
+        Max/Min element.
+
+6. Operator Overloading (for convenience)
+
+        operator+, operator-, operator* (matrix/scalar).
+
+        operator() → element access.
+
+        operator<< → print.
+
+7. Static Utility Methods
+        identityMatrix(n) → Generate identity matrix.
+
+        zeroMatrix(r, c) → Generate all-zero matrix.
+
+        randomMatrix(r, c) → Generate with random values.
