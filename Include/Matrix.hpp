@@ -195,7 +195,7 @@ public:
         }
     }
 
-    void flip_horizontal()
+    void flip_vertical()
     {
         int s = 0, e = col - 1;
         while (s < e)
@@ -208,7 +208,7 @@ public:
         }
     }
 
-    void flip_vertical()
+    void flip_horizontal()
     {
         int s = 0, e = row - 1;
         while (s < e)
@@ -266,7 +266,7 @@ public:
         {
             for (size_t j = 0; j < col; j++)
             {
-                data[i][j] = k;
+                data[i][j] = value;
             }
         }
     }
@@ -304,7 +304,7 @@ public:
                 s = mid + 1;
             }
         }
-        return -1;
+        return {-1,-1};
     }
 
     void replace(T value, T change)
@@ -354,12 +354,12 @@ public:
 
     T maximum()
     {
-        T maxi = INT_MIN;
+        T mini = INT_MIN;
         for (const auto &row : data)
         {
             for (const auto &val : row)
-                maxi = max(maxi, val);
+                mini = max(mini, val);
         }
-        return maxi;
+        return mini;
     }
 };
