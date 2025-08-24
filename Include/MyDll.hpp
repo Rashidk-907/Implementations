@@ -5,7 +5,7 @@ using std::cout;
 template <typename T>
 class MyDll
 {
-private:
+protected:
     struct node
     {
         T data;
@@ -119,7 +119,6 @@ public:
     {
         if (head == tail)
         {
-            cout << "Empty List\n";
             delete head;
             head = tail = nullptr;
             return;
@@ -139,7 +138,7 @@ public:
     {
         if (!head)
         {
-            cout << "Empty Listn\n";
+            cout << "Empty List\n";
             return;
         }
         else if (!head->next)
@@ -217,26 +216,6 @@ public:
         return tail->data;
     }
 
-    void reverse()
-    {
-        if (!head)
-            return;
-
-        node *curr = head;
-        node *prev = nullptr;
-        node *forward;
-        while (curr)
-        {
-            forward = curr->next;
-            curr->next = prev;
-            curr->previous = forward;
-            prev = curr;
-            curr = forward;
-        }
-        tail = head;
-        head = prev;
-    }
-
     bool contains(const T &val)
     {
         node *temp = head;
@@ -265,7 +244,37 @@ public:
         _size = 0;
     }
 
-    // TODO : write a reverse funtion
+    const T &at(int pos)
+    {
+        static T dummy{}; // default-constructed, persists for program lifetime
+        node *temp = head;
+        for (int i = 0; i < pos && temp != nullptr; i++)
+            temp = temp->next;
+
+        if (temp == nullptr)
+            return dummy;
+        return temp->data;
+    }
+
+    void reverse()
+    {
+        if (!head)
+            return;
+
+        node *curr = head;
+        node *prev = nullptr;
+        node *forward;
+        while (curr)
+        {
+            forward = curr->next;
+            curr->next = prev;
+            curr->previous = forward;
+            prev = curr;
+            curr = forward;
+        }
+        tail = head;
+        head = prev;
+    }
 
     void print_reverse()
     {

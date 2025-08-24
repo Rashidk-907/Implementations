@@ -80,11 +80,6 @@ public:
         return _cap;
     }
 
-    ~MyVector()
-    {
-        delete[] arr;
-    }
-
     void clear()
     {
         delete[] arr;
@@ -114,4 +109,9 @@ public:
     T *begin() { return arr; }
 
     T *end() { return arr + _size; }
+
+    ~MyVector()
+    {
+        delete[] arr;
+    }
 };
