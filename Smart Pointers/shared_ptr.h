@@ -12,7 +12,7 @@ class Shared_ptr
 public:
     Shared_ptr(T *ptr = nullptr)
     {
-        ctrl = new block(ptr);
+        ctrl = ptr ? new block(ptr) : nullptr;
     }
     Shared_ptr(const Shared_ptr &other)
     {
@@ -27,7 +27,7 @@ public:
     {
         if (this != &other)
         {
-            this->~Shared_ptr();
+            cleanup();
 
             ctrl = other.ctrl;
             if (ctrl)
@@ -48,16 +48,26 @@ public:
     {
         if (this != &other)
         {
-            this->~Shared_ptr();
+            cleanup();
             ctrl = other.ctrl;
             other.ctrl = nullptr;
         }
         return *this;
     }
 
+    T &operator*()
+    {
+        return *ctrl->ptr;
+    }
+
+    const T &operator*() const
+    {
+        return *ctrl->ptr;
+    }
+
     T *operator->()
     {
-        return (ctrl ? *ctrl->ptr : 0);
+        return (ctrl ? ctrl->ptr : 0);
     }
 
     int count()
@@ -68,19 +78,24 @@ public:
     {
         return (ctrl ? ctrl->ptr : 0);
     }
-    ~Shared_ptr()
+
+    void cleanup()
     {
         if (ctrl)
         {
-            // cout << "Decresing\n";
             ctrl->count--;
             if (ctrl->count == 0)
             {
-                // cout << "Deleting\n";
                 delete ctrl->ptr;
                 delete ctrl;
             }
+            ctrl = nullptr;
         }
+    }
+
+    ~Shared_ptr()
+    {
+        cleanup();
     }
 };
 
